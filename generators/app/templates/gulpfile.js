@@ -1,5 +1,5 @@
 /**
- * Created by yeoman generator-makrina <%= version %> on <%= date %>.
+ * Created by yeoman generator-django-ana <%= version %> on <%= date %>.
  *
  * Gulp configuration
  * Adapted from gulpfile-ninecms
@@ -9,22 +9,21 @@
  * gulp build --production : for a minified production build
  */
 
-// TODO fix gulpfile
-
 /*
  * Configuration
  */
 var paths = {
   assets: [
     // 'node_modules/bootstrap/dist/*fonts/*',
+    // 'private/*images/*'
   ],
   sass: [
-    'public/stylesheets/*.s?ss'
+    'private/stylesheets/*.s?ss'
   ],
   less: [],
   css: [
     'node_modules/bootstrap/dist/css/bootstrap*(|-theme).css',
-    'public/build/css/<%= name %>.css' // sass build
+    'static/css/<%= name %>.css' // sass build
   ],
   js: '',
   js_watch: [
@@ -34,47 +33,25 @@ var paths = {
     // angular
     // 'node_modules/angular/angular.js',
     // 'node_modules/angular-animate/angular-animate.js',
-    // 'public/javascripts/<%= name %>/*.module.js',
-    // 'public/javascripts/<%= name %>/*.module.js',
-    // 'public/javascripts/<%= name %>/**/*.controller.js'
+    // 'private/javascripts/<%= name %>/*.module.js',
+    // 'private/javascripts/<%= name %>/*.module.js',
+    // 'private/javascripts/<%= name %>/**/*.controller.js'
   ],
   js_lint: [
-    'bin/*.js',
-    'e2e-tests/*.js',
-    'models/*.js',
     'private/javascripts/*.js',
-    'public/javascripts/admin/*.js',
-    'routes/**/*.js',
-    'services/*.js',
-    'spec/**/*.js',
     '*.js'
   ],
-  js_cover: [
-    'models/*.js',
-    'routes/*.js',
-    // 'routes/**/*.js',
-    'routes/api/contact.js',
-    // 'services/*.js',
-    'services/email.js',
-    'services/i18n-config.js',
-    'services/session-config.js',
-    'app.js'
-  ],
-  mocha: [
-    'spec/*.js',
-    // 'spec/api/contact.js',  // disable to prevent send e-mail
-    'spec/api/contact.stub.js'
-  ],
-  build: 'public/build/',
+  build: 'static/',
   images: '',
 
   admin: {
     assets: [
       'node_modules/bootstrap/dist/*fonts/*',
-      'node_modules/font-awesome/*fonts/*'
+      'node_modules/font-awesome/*fonts/*',
+      'private/javascripts/*admin/*.html'
     ],
     sass: [
-      'public/javascripts/admin/**/*.s?ss',
+      'private/javascripts/admin/**/*.s?ss',
       'node_modules/ng-gentelella/gentelella/*.s?ss'
     ],
     css: [
@@ -87,8 +64,8 @@ var paths = {
       'node_modules/gentelella/vendors/pnotify/dist/pnotify.buttons.css',
       'node_modules/gentelella/vendors/pnotify/dist/pnotify.nonblock.css',
       'node_modules/gentelella/vendors/select2/dist/css/select2.min.css',
-      'public/build/admin/css/admin.*.css',
-      'public/build/admin/css/gentelella.*.css'
+      'static/admin/css/admin.*.css',
+      'static/admin/css/gentelella.*.css'
     ],
     js_watch: [
       'node_modules/jquery/dist/jquery.js',
@@ -127,21 +104,21 @@ var paths = {
       'node_modules/ng-gentelella/gentelella/**/*.component.js',
       'node_modules/ng-gentelella/gentelella/**/*.service.js',
 
-      'public/javascripts/admin/*.module.js',
-      'public/javascripts/admin/*.config.js',
-      'public/javascripts/admin/core/*.module.js',
-      'public/javascripts/admin/core/*.filter.js',
-      'public/javascripts/admin/core/**/*.module.js',
-      'public/javascripts/admin/core/**/*.service.js',
-      'public/javascripts/admin/dashboard*/*.module.js',
-      'public/javascripts/admin/dashboard*/*.component.js',
-      'public/javascripts/admin/*list/*.module.js',
-      'public/javascripts/admin/*list/*.component.js',
-      'public/javascripts/admin/*detail/*.module.js',
-      'public/javascripts/admin/*detail/*.component.js',
-      'public/javascripts/admin/*detail/*.filter.js'
+      'private/javascripts/admin/*.module.js',
+      'private/javascripts/admin/*.config.js',
+      'private/javascripts/admin/core/*.module.js',
+      'private/javascripts/admin/core/*.filter.js',
+      'private/javascripts/admin/core/**/*.module.js',
+      'private/javascripts/admin/core/**/*.service.js',
+      'private/javascripts/admin/dashboard*/*.module.js',
+      'private/javascripts/admin/dashboard*/*.component.js',
+      'private/javascripts/admin/*list/*.module.js',
+      'private/javascripts/admin/*list/*.component.js',
+      'private/javascripts/admin/*detail/*.module.js',
+      'private/javascripts/admin/*detail/*.component.js',
+      'private/javascripts/admin/*detail/*.filter.js'
     ],
-    build: 'public/build/admin/'
+    build: 'static/admin/'
   }
 };
 var config = {
@@ -185,11 +162,8 @@ var os = require('os');
 var changed = require('gulp-changed');
 // google fonts
 var googleWebFonts = require('gulp-google-webfonts');
-// testing/mocha
-var mocha = require('gulp-mocha');
-var istanbul = require('gulp-istanbul');
+// testing
 var nsp = require('gulp-nsp');
-var plumber = require('gulp-plumber');
 var karmaServer = require('karma').Server;
 var path = require('path');
 var fs = require('fs');
@@ -395,33 +369,6 @@ var tasks = {
   },
 
   /*
-   * Pre-Testing
-   */
-  preTest: function () {
-    return gulp.src(paths.js_cover)
-      .pipe(excludeGitignore())
-      .pipe(istanbul({
-        includeUntested: true
-      }))
-      .pipe(istanbul.hookRequire());
-  },
-
-  /*
-   * Testing with mocha
-   * https://github.com/sindresorhus/gulp-mocha/issues/54#issuecomment-240666300
-   */
-  mocha: function () {
-    gulp.doneCallback = function (err) {
-      process.exit(err ? 1 : 0);
-    };
-    return gulp.src(paths.mocha)
-      .pipe(plumber())
-      .pipe(mocha({reporter: 'spec', colors: true}))
-      .on('error', handleError('Mocha'))
-      .pipe(istanbul.writeReports());
-  },
-
-  /*
    * Testing with karma
    */
   karma: function (done) {
@@ -517,10 +464,7 @@ gulp.task('images', req, tasks.images);
 gulp.task('clean_image_opts', req, tasks.clean_image_opts);
 gulp.task('fonts', req, tasks.fonts);
 gulp.task('nsp', tasks.nsp);
-gulp.task('preTest', tasks.preTest);
-gulp.task('mocha', tasks.mocha);
 gulp.task('karma', tasks.karma);
-gulp.task('istanbul', ['preTest'], tasks.mocha);
 gulp.task('adminAssets', req, tasks.adminAssets);
 gulp.task('adminSass', req, tasks.adminSass);
 gulp.task('adminCss', req.concat(['adminSass']), tasks.adminCss);
@@ -532,7 +476,6 @@ gulp.task('build', [
   'less',
   'sass',
   'css',
-  // 'browserify',
   'concatJs',
   'images',
   'fonts',
@@ -546,7 +489,6 @@ gulp.task('build', [
 gulp.task('test', [
   'lintjs',
   'nsp',
-  'istanbul',
   'karma'
 ]);
 

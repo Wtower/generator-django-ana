@@ -33,6 +33,54 @@ Then generate your new project:
 yo django-ana
 ```
 
-## License
+Description
+-----------
+
+The generator creates a new project with:
+
+- A default `requirements.txt` with most useful Django packages.
+- A default `package.json` file with the appropriate description and dependencies for front-end management.
+- Default meta documents: `README`, private `LICENSE`, `CONTRIBUTING`, `CHANGELOG`.
+- Default `.gitignore` and `.editorconfig` files.
+- A standard Django `manage.py` script.
+- A default `gulpfile.js` for managing front-end.
+- A `newrelic.ini` configuration file for Python.
+- The main application python package with settings for development, testing and production, wsgi and mod_wsgi scripts
+  and main urls routes.
+- An additional 'core' python package for specifying application information, use signals and template tags.
+- Default media, private and templates directories.
+
+Prompts
+-------
+
+The generator prompts for the following information:
+
+- Project name: the generated project name (snake case).
+  Used in: `README.md, package.json, manage.py, gulpfile.js, _venv`, 
+  `_name_/ settings*.py, urls.py, wsgi.py, wsgi_mod.py`,
+  `_name__core/apps.py`.
+  
+- Pascal name: the generated project name (pascal case).
+  Used in: `_name__core/apps.py`.
+  
+- Verbose name: a verbose project name, spaces allowed.
+  Used in: `_name_/settings.py, _name__core/apps.py`.
+
+- Description: project description.
+  Used in: `README.md, package.json, _name_/settings.py`.
+
+- Git repository URL. Used in `package.json`.
+
+- Author. Used in `package.json, LICENSE, CONTRIBUTING.md`.
+
+- Deploy host: optional for `npm deploy` command.
+  Used in: `package.json`.
+
+- Allowed host: Used in: `_name_/settings_live.py`.
+
+- New Relic license key. Used in `newrelic.ini`.
+
+License
+-------
 
 MIT © [Wtower](https://github.com/Wtower)

@@ -1,6 +1,6 @@
 {
   "name": "generator-django-ana",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generate Django boilerplate. Featuring REST, gulp build and ng-gentelella.",
   "homepage": "https://github.com/Wtower/generator-django-ana.git",
   "author": {
@@ -16,8 +16,10 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
+    "lodash": "^4.17.2",
+    "randomstring": "^1.1.5",
+    "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"
   },
   "devDependencies": {

@@ -12,7 +12,16 @@ var coveralls = require('gulp-coveralls');
 gulp.task('static', function () {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint({
+      rules: {
+        // control characters eg `\n` are required for file appends
+        'no-control-regex': 'off',
+        // allow double quotes to avoid escaping single
+        'quotes': ['error', 'single', {avoidEscape: true}],
+        // relax curly
+        'curly': ['error', 'multi-line']
+      }
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -22,7 +31,7 @@ gulp.task('nsp', function (cb) {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src('generators/**/*.js')
+  return gulp.src('generators/*/index.js')
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true

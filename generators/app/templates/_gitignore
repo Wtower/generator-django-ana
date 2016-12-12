@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Gulp build
+static/
+
+# New relic
+newrelic_agent.log
+
+# Coverage
+coverage/
+
+# IDE
+.idea
+
+# Web site image thumbnails
+media/**/image/thumbnail/
+media/**/image/*/thumbnail/

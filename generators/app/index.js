@@ -101,6 +101,7 @@ module.exports = yeoman.Base.extend({
     var copyPaths = [
       'media/',
       'private/',
+      'static/',
       'templates/',
       'CHANGELOG',
       'requirements.txt'

@@ -123,7 +123,7 @@ module.exports = yeoman.Base.extend({
       deployHost: this.props.deployHost,
       allowedHost: this.props.allowedHost,
       newRelicLicense: this.props.newRelicLicense,
-      secretKey: randomString.generate({length: 50, capitalization: 'lowercase'}),
+      secretKey: randomString.generate({length: 50, charset: 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'}),
       pass: randomString.generate(12),
       today: today,
       date: [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('/'),
@@ -160,5 +160,6 @@ module.exports = yeoman.Base.extend({
 
   install: function () {
     this.installDependencies();
+    this.spawnCommand('git', ['init']);
   }
 });

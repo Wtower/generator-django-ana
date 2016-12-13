@@ -80,6 +80,18 @@ The generator prompts for the following information:
 
 - New Relic license key. Used in `newrelic.ini`.
 
+After generation
+----------------
+
+Usually perform the following actions:
+
+```
+vf new -p python3 VIRTUALENV
+pip install -U pip setuptools wheel
+pip install -U -r requirements.txt
+python manage.py migrate
+```
+
 License
 -------
 

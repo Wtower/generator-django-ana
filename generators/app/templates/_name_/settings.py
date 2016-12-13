@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     # 'ninecms',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -231,9 +232,9 @@ SITE_KEYWORDS = "<%= description %>"
 
 I18N_URLS = True  # False
 
-IMAGE_STYLES.update({
-    'thumbnail_carousel_top': {
-        'type': 'thumbnail-crop',
-        'size': (210, 140)
-    },
-})
+# IMAGE_STYLES.update({
+#     'thumbnail_carousel_top': {
+#         'type': 'thumbnail-crop',
+#         'size': (210, 140)
+#     },
+# })

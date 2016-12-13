@@ -2,10 +2,9 @@
 
 from django.conf import settings
 from django.conf.urls import include, url
-from django.conf.urls.i18n import i18n_patterns
+# from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 # from django.contrib import admin
-from django.views.generic import TemplateView
 from django.views.static import serve as static_serve
 
 urlpatterns = [
@@ -17,6 +16,10 @@ urlpatterns = [
 # static files (images, css, javascript, etc.)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # pragma: no cover
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
 
 # Last: all remaining pass to CMS
 # if settings.I18N_URLS:  # pragma: nocover

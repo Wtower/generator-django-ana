@@ -5,6 +5,7 @@ generator-django-ana
 [![Build Status][travis-image]][travis-url] 
 [![Dependency Status][daviddm-image]][daviddm-url] 
 [![Coverage percentage][coveralls-image]][coveralls-url]
+[![npm](https://img.shields.io/npm/dt/generator-django-ana.svg?maxAge=2592000)](https://www.npmjs.com/package/generator-django-ana)
 
 [npm-image]: https://badge.fury.io/js/generator-django-ana.svg
 [npm-url]: https://npmjs.org/package/generator-django-ana
@@ -89,7 +90,8 @@ Usually perform the following actions:
 vf new -p python3 VIRTUALENV
 pip install -U pip setuptools wheel
 pip install -U -r requirements.txt
-python manage.py migrate
+./manage.py migrate
+./manage.py createsuperuser
 ```
 
 License

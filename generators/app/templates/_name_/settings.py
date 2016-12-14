@@ -185,6 +185,8 @@ CSRF_COOKIE_HTTPONLY = True
 
 SESSION_COOKIE_NAME = '<%= name %>_sessionid'
 
+INTERNAL_IPS = ('127.0.0.1',)
+
 
 # Caches
 

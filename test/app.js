@@ -30,6 +30,7 @@ describe('generator-django-ana:app', function () {
           '.gitignore',
           '.venv',
           'CONTRIBUTING.md',
+          'gulpfile.js',
           'LICENSE',
           'manage.py',
           'newrelic.ini',

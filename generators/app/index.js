@@ -92,6 +92,7 @@ module.exports = yeoman.Base.extend({
       '_gitignore',
       '_venv',
       'CONTRIBUTING.md',
+      'gulpfile.js',
       'LICENSE',
       'manage.py',
       'newrelic.ini',

@@ -32,7 +32,5 @@ if settings.DEBUG:
 #     ]
 
 urlpatterns += [
-    url(r'^media/(?P<path>.*)$', static_serve, {
-        'document_root': settings.MEDIA_ROOT,
-    })
+    url(r'^media/(?P<path>.*)$', static_serve, {'document_root': settings.MEDIA_ROOT}),
 ]

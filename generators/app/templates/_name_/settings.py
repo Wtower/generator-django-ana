@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     '<%= name %>_core',
     'debug_toolbar',
+    'rest_framework',
+    'rest_framework_mongoengine',
     # 'mptt',
     # 'guardian',
     # 'ninecms',
@@ -181,7 +183,12 @@ SECURE_BROWSER_XSS_FILTER = True
 
 X_FRAME_OPTIONS = 'DENY'
 
-CSRF_COOKIE_HTTPONLY = True
+# disable http only on cookie to allow ajax
+CSRF_COOKIE_HTTPONLY = False
+
+CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+
+CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
 
 SESSION_COOKIE_NAME = '<%= name %>_sessionid'
 

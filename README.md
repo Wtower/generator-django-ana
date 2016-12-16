@@ -77,7 +77,7 @@ The generator prompts for the following information:
 - Deploy host: optional for `npm deploy` command.
   Used in: `package.json`.
 
-- Allowed host: Used in: `_name_/settings_live.py`.
+- Allowed host: Used in: `_name_/ settings_live.py, wsgi_mod.py`.
 
 - New Relic license key. Used in `newrelic.ini`.
 

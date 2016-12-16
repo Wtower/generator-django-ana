@@ -8,8 +8,8 @@ import site
 
 # Set paths
 wsgi_app = '<%= name %>'
-wsgi_path = '/var/www/vhosts/<%= name %>/httpdocs'
-venv_path = '/var/www/vhosts/<%= name %>/var/virtualenvs/' + wsgi_app
+wsgi_path = '/var/www/vhosts/<%= allowedHost %>/httpdocs'
+venv_path = '/var/virtualenvs/' + wsgi_app
 
 # Add the site-packages of the chosen virtualenv to work with
 site.addsitedir(venv_path + '/local/lib/python3.4/site-packages')
@@ -29,7 +29,7 @@ with open(activate_env) as f:
 
 # noinspection PyUnresolvedReferences
 import newrelic.agent
-newrelic.agent.initialize(wsgi_path + '/.newrelic.ini')
+newrelic.agent.initialize(wsgi_path + '/newrelic.ini')
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

@@ -64,7 +64,7 @@ module.exports = yeoman.Base.extend({
       message: 'Deploy host',
       store: true
     }, {
-      // _name_/settings_live.py
+      // _name_/ settings_live.py, wsgi_mod.py
       type: 'input',
       name: 'allowedHost',
       message: 'Allowed host',

@@ -23,7 +23,7 @@ module.exports = yeoman.Base.extend({
         return lodash.snakeCase(self.appname);
       }
     }, {
-      // _name__core/apps.py
+      // _name__core/ apps.py, tests.py
       type: 'input',
       name: 'pascalName',
       message: 'Pascal name',

@@ -13,6 +13,8 @@ newrelic_agent.log
 
 # Coverage
 coverage/
+.coverage
+htmlcov/
 
 # IDE
 .idea

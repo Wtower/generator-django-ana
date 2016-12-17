@@ -20,6 +20,7 @@
     "update-webdriver": "node_modules/protractor/bin/webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "node_modules/protractor/bin/protractor e2e-tests/protractor.conf.js",
+    "test-django": "coverage run --branch --source='.' manage.py test --settings=<%= name %>.settings_test && coverage report -m && coverage html",
     "deploy": "cd ~/workspace/ansible/ansible-play/books/ && ansible-playbook django_deploy.yml -e \"host=<%= deployHost %> project=<%= name %>\" --ask-vault-pass",
     "server_upgrade": "cd ~/workspace/ansible/ansible-play/books/ && ansible remotes -m apt -a \"upgrade=yes\" -b -K"
   },

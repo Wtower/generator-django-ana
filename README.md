@@ -62,7 +62,7 @@ The generator prompts for the following information:
   `_name__core/apps.py`.
   
 - Pascal name: the generated project name (pascal case).
-  Used in: `_name__core/apps.py`.
+  Used in: `_name__core/ apps.py, tests.py`.
   
 - Verbose name: a verbose project name, spaces allowed.
   Used in: `_name_/settings.py, _name__core/apps.py`.

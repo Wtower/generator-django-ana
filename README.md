@@ -50,6 +50,7 @@ The generator creates a new project with:
   and main urls routes.
 - An additional 'core' python package for specifying application information, use signals and template tags.
 - Default media, private and templates directories.
+- A `.yo-rc.json` local yeoman configuration file with the options used to generate the project.
 
 Prompts
 -------

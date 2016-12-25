@@ -20,7 +20,7 @@ module.exports = yeoman.Base.extend({
       name: 'name',
       message: 'Project name',
       default: function () {
-        return lodash.snakeCase(self.appname);
+        return self.config.get('name') || lodash.snakeCase(self.appname);
       }
     }, {
       // _name__core/ apps.py, tests.py
@@ -28,7 +28,7 @@ module.exports = yeoman.Base.extend({
       name: 'pascalName',
       message: 'Pascal name',
       default: function (response) {
-        return lodash.upperFirst(lodash.camelCase(response.name));
+        return self.config.get('pascalName') || lodash.upperFirst(lodash.camelCase(response.name));
       }
     }, {
       // _name_/settings.py, _name__core/apps.py
@@ -36,7 +36,7 @@ module.exports = yeoman.Base.extend({
       name: 'verboseName',
       message: 'Verbose name',
       default: function (response) {
-        return lodash.startCase(response.name);
+        return self.config.get('verboseName') || lodash.startCase(response.name);
       }
     }, {
       // README.md, package.json, _name_/settings.py
@@ -44,13 +44,14 @@ module.exports = yeoman.Base.extend({
       name: 'description',
       message: 'Description',
       default: function (response) {
-        return lodash.startCase(response.name);
+        return self.config.get('description') || lodash.startCase(response.name);
       }
     }, {
       // package.json
       type: 'input',
       name: 'git',
-      message: 'Git repository URL'
+      message: 'Git repository URL',
+      default: self.config.get('git')
     }, {
       // package.json, LICENSE, CONTRIBUTING.md
       type: 'input',
@@ -69,7 +70,7 @@ module.exports = yeoman.Base.extend({
       name: 'allowedHost',
       message: 'Allowed host',
       default: function (response) {
-        return response.name + '.com';
+        return self.config.get('allowedHost') || response.name + '.com';
       }
     }, {
       // newrelic.ini
@@ -82,6 +83,15 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       this.props = props;
     }.bind(this));
+  },
+
+  saveConfig: function () {
+    this.config.set('name', this.props.name);
+    this.config.set('pascalName', this.props.pascalName);
+    this.config.set('verboseName', this.props.verboseName);
+    this.config.set('description', this.props.description);
+    this.config.set('git', this.props.git);
+    this.config.set('allowedHost', this.props.allowedHost);
   },
 
   writing: function () {

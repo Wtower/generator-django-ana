@@ -98,6 +98,7 @@ module.exports = yeoman.Base.extend({
     var templatePaths = [
       '_name_/',
       '_name__core/',
+      'private/',
       '_editorconfig',
       '_gitignore',
       '_venv',
@@ -111,7 +112,6 @@ module.exports = yeoman.Base.extend({
     ];
     var copyPaths = [
       'media/',
-      'private/',
       'static/',
       'templates/',
       'CHANGELOG',

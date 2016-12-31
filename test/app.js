@@ -26,6 +26,7 @@ describe('generator-django-ana:app', function () {
         var templatePaths = [
           'yeotests/',
           'yeotests_core/',
+          'private/',
           '.editorconfig',
           '.gitignore',
           '.venv',
@@ -40,7 +41,6 @@ describe('generator-django-ana:app', function () {
         ];
         var copyPaths = [
           'media/',
-          'private/',
           'templates/',
           'CHANGELOG',
           'requirements.txt'

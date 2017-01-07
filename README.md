@@ -18,10 +18,24 @@ generator-django-ana
 
 Generate Django boilerplate. Featuring REST, gulp build and ng-gentelella.
 
+Features
+--------
+
+The default [django-admin startproject](https://docs.djangoproject.com/en/1.10/ref/django-admin/#startproject)
+is quite simple. You can provide template for the generated code to replace the 
+[default](https://github.com/django/django/tree/master/django/conf/project_template) like in this 
+[example](https://www.maykinmedia.nl/blog/2013/jun/6/customizing-django-startproject-templates/),
+but it does not any of the following features:
+
+- [Additional configuration parameters](http://stackoverflow.com/questions/41413448/when-starting-a-new-django-project-via-django-admin-py-is-there-a-way-to-inject/41414672#41414672)
+- Save configuration to disk
+- Re-run the generator
+
 Installation
 ------------
 
-First, install [Yeoman](http://yeoman.io) and generator-django-ana using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-django-ana using [npm](https://www.npmjs.com/) 
+(we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
@@ -94,6 +108,11 @@ pip install -U -r requirements.txt
 ./manage.py migrate
 ./manage.py createsuperuser
 ```
+
+Useful links
+------------
+
+- https://github.com/django/django/tree/master/django/conf/project_template
 
 License
 -------

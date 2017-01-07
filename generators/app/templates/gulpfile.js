@@ -37,6 +37,7 @@ var paths = {
     // 'private/javascripts/<%= name %>/*.module.js',
     // 'private/javascripts/<%= name %>/**/*.controller.js'
   ],
+  partials: [],
   js_lint: [
     'private/javascripts/*.js',
     '*.js'

@@ -108,7 +108,7 @@ module.exports = yeoman.Base.extend({
       'manage.py',
       'newrelic.ini',
       'package.json',
-      'README.md'
+      'README.rst'
     ];
     var copyPaths = [
       'media/',

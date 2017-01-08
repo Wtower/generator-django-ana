@@ -36,7 +36,7 @@ describe('generator-django-ana:app', function () {
           'manage.py',
           'newrelic.ini',
           'package.json',
-          'README.md',
+          'README.rst',
           '.yo-rc.json'
         ];
         var copyPaths = [

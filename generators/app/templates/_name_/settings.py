@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     '<%= name %>_core',
     'debug_toolbar',
     'rest_framework',
-    'rest_framework_mongoengine',
     # 'mptt',
     # 'guardian',
     # 'ninecms',

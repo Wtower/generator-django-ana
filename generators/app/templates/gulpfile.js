@@ -42,6 +42,7 @@ var paths = {
     'private/javascripts/*.js',
     '*.js'
   ],
+  fonts: 'private/',
   build: 'static/',
   images: '',
 

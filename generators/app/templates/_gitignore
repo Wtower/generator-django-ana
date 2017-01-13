@@ -17,7 +17,7 @@ coverage/
 htmlcov/
 
 # IDE
-.idea
+.idea/
 
 # Web site image thumbnails
 media/**/image/thumbnail/

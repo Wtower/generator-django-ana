@@ -40,7 +40,7 @@
     "angular-mocks": "^1.5.7",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
-    "gulpfile-ninecms": "^0.3.0",
+    "gulpfile-ninecms": "^0.4.0",
     "yargs": "^6.3.0"
   }
 }

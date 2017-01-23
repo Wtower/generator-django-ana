@@ -1,0 +1,9 @@
+{{ subject }}
+{% with subject|length as n %}{% with ''|center:n as range %}{% for _ in range %}={% endfor %}{% endwith %}{% endwith %}
+
+Sender: {{ sender }} ({{ email }})
+
+{{ message }}
+
+--
+<%= verboseName %> contact form

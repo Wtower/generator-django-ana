@@ -27,10 +27,11 @@ describe('generator-django-ana:app', function () {
           'yeotests/',
           'yeotests_core/',
           'private/',
+          'templates/',
           '.editorconfig',
           '.gitignore',
           '.venv',
-          'CONTRIBUTING.md',
+          'CONTRIBUTING.rst',
           'gulpfile.js',
           'LICENSE',
           'manage.py',
@@ -41,7 +42,6 @@ describe('generator-django-ana:app', function () {
         ];
         var copyPaths = [
           'media/',
-          'templates/',
           'CHANGELOG',
           'requirements.txt'
         ];

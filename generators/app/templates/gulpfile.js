@@ -42,6 +42,11 @@ var paths = {
     'private/javascripts/*.js',
     '*.js'
   ],
+  base64: [],
+  inlineCss: {
+    html: 'private/html/email_body.html',
+    build: 'templates/envelope/'
+  },
   fonts: 'private/',
   build: 'static/',
   images: '',
@@ -158,6 +163,8 @@ var tasks = {
   clean_image_opts: function () { return taskMethods.clean_image_opts() },
   fonts: function () { return taskMethods.fonts(paths); },
   nsp: function () { return taskMethods.nsp(); },
+  base64: function () { return taskMethods.base64(paths); },
+  inlineCss: function () { return taskMethods.inlineCss(paths); },
 
   adminAssets: function () { return taskMethods.assets(paths.admin); },
   adminCss: function () { return taskMethods.css(paths.admin); },
@@ -183,6 +190,8 @@ gulp.task('clean_image_opts', req, tasks.clean_image_opts);
 gulp.task('fonts', req, tasks.fonts);
 gulp.task('nsp', tasks.nsp);
 gulp.task('karma', tasks.karma);
+gulp.task('base64', req.concat(['sass']), tasks.base64);
+gulp.task('inlineCss', req.concat(['sass']), tasks.inlineCss);
 gulp.task('adminAssets', req, tasks.adminAssets);
 gulp.task('adminSass', req, tasks.adminSass);
 gulp.task('adminCss', req.concat(['adminSass']), tasks.adminCss);
@@ -198,6 +207,7 @@ gulp.task('build', [
   'concatJs',
   'images',
   'fonts',
+  'inlineCss',
   'adminAssets',
   'adminSass',
   'adminCss',
@@ -214,14 +224,15 @@ gulp.task('test', [
 // watch task
 gulp.task('watch', ['build'], function () {
   gulp.watch(paths.css, ['css']);
-  gulp.watch(paths.less, ['less', 'css']);
-  gulp.watch(paths.sass, ['sass', 'css']);
+  gulp.watch(paths.less, ['css']);
+  gulp.watch(paths.sass, ['css', 'inlineCss']);
   gulp.watch(paths.js_watch, ['concatJs']);
   gulp.watch(paths.admin.css, ['adminCss']);
   gulp.watch(paths.admin.sass, ['adminSass', 'adminCss']);
   gulp.watch(paths.admin.js_watch, ['adminConcatJs']);
   gulp.watch(paths.admin.partials, ['adminConcatJs']);
-  gulp.watch(['./fonts.list'], ['fonts']);
+  gulp.watch(paths.inlineCss.html, ['inlineCss']);
+  gulp.watch([paths.fonts + './fonts.list'], ['fonts']);
   gutil.log(gutil.colors.bgGreen('Watching for changes...'));
 });
 

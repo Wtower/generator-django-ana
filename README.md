@@ -3,7 +3,6 @@ generator-django-ana
 
 [![NPM version][npm-image]][npm-url] 
 [![Build Status][travis-image]][travis-url] 
-[![Dependency Status][daviddm-image]][daviddm-url] 
 [![Coverage percentage][coveralls-image]][coveralls-url]
 [![npm](https://img.shields.io/npm/dt/generator-django-ana.svg?maxAge=2592000)](https://www.npmjs.com/package/generator-django-ana)
 
@@ -11,8 +10,6 @@ generator-django-ana
 [npm-url]: https://npmjs.org/package/generator-django-ana
 [travis-image]: https://travis-ci.org/Wtower/generator-django-ana.svg?branch=master
 [travis-url]: https://travis-ci.org/Wtower/generator-django-ana
-[daviddm-image]: https://david-dm.org/Wtower/generator-django-ana.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Wtower/generator-django-ana
 [coveralls-image]: https://coveralls.io/repos/Wtower/generator-django-ana/badge.svg
 [coveralls-url]: https://coveralls.io/r/Wtower/generator-django-ana
 

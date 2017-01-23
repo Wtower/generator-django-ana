@@ -99,10 +99,11 @@ module.exports = yeoman.Base.extend({
       '_name_/',
       '_name__core/',
       'private/',
+      'templates/',
       '_editorconfig',
       '_gitignore',
       '_venv',
-      'CONTRIBUTING.md',
+      'CONTRIBUTING.rst',
       'gulpfile.js',
       'LICENSE',
       'manage.py',
@@ -113,7 +114,6 @@ module.exports = yeoman.Base.extend({
     var copyPaths = [
       'media/',
       'static/',
-      'templates/',
       'CHANGELOG',
       'requirements.txt'
     ];

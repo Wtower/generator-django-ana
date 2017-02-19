@@ -1,7 +1,7 @@
 {
   "name": "generator-django-ana",
-  "version": "0.1.8",
-  "description": "Generate Django boilerplate. Featuring REST, gulp build and ng-gentelella.",
+  "version": "0.1.9",
+  "description": "Generate Django boilerplate.",
   "homepage": "https://github.com/Wtower/generator-django-ana.git",
   "author": {
     "name": "Wtower",

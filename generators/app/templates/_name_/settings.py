@@ -25,9 +25,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'admin_bootstrapped_plus',
-    # 'django_admin_bootstrapped',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,7 +37,6 @@ INSTALLED_APPS = [
     # 'rest_framework',
     # 'mptt',
     # 'guardian',
-    # 'ninecms',
 ]
 
 MIDDLEWARE = [
@@ -211,21 +208,6 @@ CACHES = {
 CACHE_MIDDLEWARE_SECONDS = 3 * 60 * 60
 
 
-# Guardian
-
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',  # this is default
-#     'guardian.backends.ObjectPermissionBackend',
-# )
-
-# ANONYMOUS_USER_ID = -1
-
-
-# Django admin
-
-# DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
-
-
 # Messages
 
 MESSAGE_TAGS = {
@@ -235,23 +217,3 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.ERROR: 'danger',
 }
-
-
-# CMS settings
-
-# from ninecms.settings import *
-
-SITE_NAME = "<%= verboseName %>"
-
-SITE_AUTHOR = "<%= author %>"
-
-SITE_KEYWORDS = "<%= description %>"
-
-I18N_URLS = True  # False
-
-# IMAGE_STYLES.update({
-#     'thumbnail_carousel_top': {
-#         'type': 'thumbnail-crop',
-#         'size': (210, 140)
-#     },
-# })

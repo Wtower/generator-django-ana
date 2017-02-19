@@ -13,7 +13,7 @@ generator-django-ana
 [coveralls-image]: https://coveralls.io/repos/Wtower/generator-django-ana/badge.svg
 [coveralls-url]: https://coveralls.io/r/Wtower/generator-django-ana
 
-Generate Django boilerplate. Featuring REST, gulp build and ng-gentelella.
+Generate Django boilerplate
 
 Features
 --------

@@ -207,6 +207,8 @@ CACHES = {
 
 CACHE_MIDDLEWARE_SECONDS = 3 * 60 * 60
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 
 # Messages
 

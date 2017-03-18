@@ -135,9 +135,6 @@ var paths = {
     build: 'static/admin/'
   }
 };
-var config = {
-  autoprefixer_versions: ['last 2 version', 'safari 5', 'ie 8', 'ie 9']
-};
 var images = [];
 
 /*

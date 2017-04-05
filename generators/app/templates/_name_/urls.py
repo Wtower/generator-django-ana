@@ -8,9 +8,9 @@ from django.contrib import admin
 from django.views.static import serve as static_serve
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^', include('<%= name %>_core.urls', namespace='front')),
+    url(r'^', include('<%= name %>_core.urls')),
     # url(r'^robots\.txt/$', TemplateView.as_view(template_name='ninecms/robots.txt', content_type='text/plain')),
 ]
 

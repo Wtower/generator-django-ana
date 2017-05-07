@@ -181,7 +181,7 @@ gulp.task('less', req, tasks.less);
 gulp.task('sass', req, tasks.sass);
 gulp.task('browserify', req, tasks.browserify);
 gulp.task('lintjs', tasks.lintjs);
-gulp.task('concatJs', req, tasks.concatJs);
+gulp.task('concatJs', req.concat(['preloadNgHtml']), tasks.concatJs);
 gulp.task('images', req, tasks.images);
 gulp.task('clean_image_opts', req, tasks.clean_image_opts);
 gulp.task('fonts', req, tasks.fonts);
@@ -224,6 +224,7 @@ gulp.task('watch', ['build'], function () {
   gulp.watch(paths.less, ['css']);
   gulp.watch(paths.sass, ['css', 'inlineCss']);
   gulp.watch(paths.js_watch, ['concatJs']);
+  gulp.watch(paths.partials, ['concatJs']);
   gulp.watch(paths.admin.css, ['adminCss']);
   gulp.watch(paths.admin.sass, ['adminSass', 'adminCss']);
   gulp.watch(paths.admin.js_watch, ['adminConcatJs']);

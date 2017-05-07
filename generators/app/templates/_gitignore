@@ -7,6 +7,7 @@ npm-debug.log
 
 # Gulp build
 static/
+templates/envelope/email_body.html
 
 # New relic
 newrelic_agent.log

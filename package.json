@@ -1,6 +1,6 @@
 {
   "name": "generator-django-ana",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generate Django boilerplate.",
   "homepage": "https://github.com/Wtower/generator-django-ana.git",
   "author": {
